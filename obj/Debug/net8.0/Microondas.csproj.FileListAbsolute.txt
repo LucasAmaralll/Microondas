@@ -2,3 +2,8 @@ C:\Users\Lucas Do Amaral\Documents\Microondas\obj\Debug\net8.0\Microondas.Genera
 C:\Users\Lucas Do Amaral\Documents\Microondas\obj\Debug\net8.0\Microondas.AssemblyInfoInputs.cache
 C:\Users\Lucas Do Amaral\Documents\Microondas\obj\Debug\net8.0\Microondas.AssemblyInfo.cs
 C:\Users\Lucas Do Amaral\Documents\Microondas\obj\Debug\net8.0\Microondas.csproj.CoreCompileInputs.cache
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\Microondas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\Microondas.AssemblyInfoInputs.cache
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\Microondas.AssemblyInfo.cs
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\Microondas.csproj.CoreCompileInputs.cache
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\Microondas.sourcelink.json

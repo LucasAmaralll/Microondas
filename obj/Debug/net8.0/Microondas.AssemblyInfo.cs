@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Microondas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f87d886497a9da7ac7c7a508f3825fd666ea55a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Microondas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Microondas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

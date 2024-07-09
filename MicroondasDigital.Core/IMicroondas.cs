@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace MicroondasDigital.Core.Interfaces
 {
     public interface IMicroondas
@@ -6,5 +8,8 @@ namespace MicroondasDigital.Core.Interfaces
         void PausarOuCanclearAquecimento();
         void IniciarAquecimentoRapido();
         void AcrescentarTempo();
+        void IniciarProgramaPreDefinido(ProgramaAquecimento programa);
+        void AdicionarProgramaCustomizado(ProgramaAquecimento programa);
+        List<ProgramaAquecimento> ObterProgramasCustomizados();
     }
 }

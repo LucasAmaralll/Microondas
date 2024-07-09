@@ -7,5 +7,6 @@ namespace MicroondasDigital.Core
         public int Tempo { get; set; } // em segundos
         public int Potencia { get; set; }
         public string Instrucoes { get; set; } = string.Empty;
+        public string CaractereAquecimento { get; set; } = ".";
     }
 }

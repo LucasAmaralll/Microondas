@@ -1,5 +1,4 @@
-using System;
-
+using System.Collections.Generic;
 
 namespace MicroondasDigital.Core
 {
@@ -11,7 +10,8 @@ namespace MicroondasDigital.Core
             Alimento = "Pipoca (de micro-ondas)",
             Tempo = 180, // 3 minutos em segundos
             Potencia = 7,
-            Instrucoes = "Observar o barulho de estouros do milho..."
+            Instrucoes = "Observar o barulho de estouros do milho...",
+            CaractereAquecimento = "*"
         };
 
         public static readonly ProgramaAquecimento Leite = new ProgramaAquecimento
@@ -20,7 +20,8 @@ namespace MicroondasDigital.Core
             Alimento = "Leite",
             Tempo = 300, // 5 minutos em segundos
             Potencia = 5,
-            Instrucoes = "Cuidado com aquecimento de líquidos..."
+            Instrucoes = "Cuidado com aquecimento de líquidos...",
+            CaractereAquecimento = "#"
         };
 
         public static readonly ProgramaAquecimento CarnesDeBoi = new ProgramaAquecimento
@@ -29,7 +30,8 @@ namespace MicroondasDigital.Core
             Alimento = "Carne em pedaço ou fatias",
             Tempo = 840, // 14 minutos em segundos
             Potencia = 4,
-            Instrucoes = "Interrompa o processo na metade..."
+            Instrucoes = "Interrompa o processo na metade...",
+            CaractereAquecimento = "@"
         };
 
         public static readonly ProgramaAquecimento Frango = new ProgramaAquecimento
@@ -38,7 +40,8 @@ namespace MicroondasDigital.Core
             Alimento = "Frango (qualquer corte)",
             Tempo = 480, // 8 minutos em segundos
             Potencia = 7,
-            Instrucoes = "Interrompa o processo na metade..."
+            Instrucoes = "Interrompa o processo na metade...",
+            CaractereAquecimento = "$"
         };
 
         public static readonly ProgramaAquecimento Feijao = new ProgramaAquecimento
@@ -47,7 +50,13 @@ namespace MicroondasDigital.Core
             Alimento = "Feijão congelado",
             Tempo = 480, // 8 minutos em segundos
             Potencia = 9,
-            Instrucoes = "Deixe o recipiente destampado..."
+            Instrucoes = "Deixe o recipiente destampado...",
+            CaractereAquecimento = "%"
         };
+
+        public static List<ProgramaAquecimento> ObterTodosProgramas()
+        {
+            return new List<ProgramaAquecimento> { Pipoca, Leite, CarnesDeBoi, Frango, Feijao };
+        }
     }
 }

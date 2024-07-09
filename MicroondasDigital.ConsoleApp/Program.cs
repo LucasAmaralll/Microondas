@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using MicroondasDigital.Core;
 
 namespace MicroondasDigital.ConsoleApp
@@ -7,142 +8,115 @@ namespace MicroondasDigital.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Bem-vindo ao Micro-ondas Digital!");
-
-            var microondas = new Microondas();
+            Microondas microondas = new Microondas();
             bool continuar = true;
 
-            do
+            while (continuar)
             {
                 Console.WriteLine("\nEscolha uma opção:");
-                Console.WriteLine("1 - Iniciar aquecimento");
-                Console.WriteLine("2 - Iniciar aquecimento rápido");
-                Console.WriteLine("3 - Acrescentar tempo durante aquecimento");
-                Console.WriteLine("4 - Pausar ou cancelar aquecimento");
-                Console.WriteLine("5 - Iniciar programa pré-definido");
-                Console.WriteLine("6 - Sair");
+                Console.WriteLine("1 - Iniciar Aquecimento");
+                Console.WriteLine("2 - Iniciar Aquecimento Rápido");
+                Console.WriteLine("3 - Pausar/Cancelar Aquecimento");
+                Console.WriteLine("4 - Acrescentar Tempo");
+                Console.WriteLine("5 - Iniciar Programa Pré-definido");
+                Console.WriteLine("6 - Adicionar Programa Customizado");
+                Console.WriteLine("7 - Sair");
 
-                int opcao;
-                if (int.TryParse(Console.ReadLine(), out opcao))
+                string opcao = Console.ReadLine();
+
+                switch (opcao)
                 {
-                    switch (opcao)
-                    {
-                        case 1:
-                            Console.WriteLine("Digite o tempo (segundos):");
-                            var tempoInput = Console.ReadLine();
-                            if (tempoInput != null && int.TryParse(tempoInput, out int tempo))
-                            {
-                                Console.WriteLine("Digite a potência (1 a 10):");
-                                var potenciaInput = Console.ReadLine();
-                                if (potenciaInput != null && int.TryParse(potenciaInput, out int potencia))
-                                {
-                                    try
-                                    {
-                                        microondas.IniciarAquecimento(tempo, potencia);
-                                    }
-                                    catch (ArgumentException ex)
-                                    {
-                                        Console.WriteLine($"Erro: {ex.Message}");
-                                    }
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Potência inválida. Tente novamente.");
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("Tempo inválido. Tente novamente.");
-                            }
-                            break;
+                    case "1":
+                        Console.WriteLine("Informe o tempo em segundos:");
+                        int tempo = int.Parse(Console.ReadLine());
 
-                        case 2:
-                            try
-                            {
-                                microondas.IniciarAquecimentoRapido();
-                            }
-                            catch (ArgumentException ex)
-                            {
-                                Console.WriteLine($"Erro: {ex.Message}");
-                            }
-                            break;
+                        Console.WriteLine("Informe a potência (1 a 10):");
+                        int potencia = int.Parse(Console.ReadLine());
 
-                        case 3:
-                            try
-                            {
-                                microondas.AcrescentarTempo();
-                            }
-                            catch (ArgumentException ex)
-                            {
-                                Console.WriteLine($"Erro: {ex.Message}");
-                            }
-                            break;
+                        try
+                        {
+                            microondas.IniciarAquecimento(tempo, potencia);
+                        }
+                        catch (ArgumentException e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                        break;
 
-                        case 4:
-                            microondas.PausarOuCanclearAquecimento();
-                            break;
+                    case "2":
+                        microondas.IniciarAquecimentoRapido();
+                        break;
 
-                        case 5:
-                            Console.WriteLine("Escolha um programa pré-definido:");
-                            Console.WriteLine("1 - Pipoca");
-                            Console.WriteLine("2 - Leite");
-                            Console.WriteLine("3 - Carnes de boi");
-                            Console.WriteLine("4 - Frango");
-                            Console.WriteLine("5 - Feijão");
+                    case "3":
+                        microondas.PausarOuCanclearAquecimento();
+                        break;
 
-                            if (int.TryParse(Console.ReadLine(), out int programaOpcao))
-                            {
-                                ProgramaAquecimento programaSelecionado = null;
-                                switch (programaOpcao)
-                                {
-                                    case 1:
-                                        programaSelecionado = ProgramasPreDefinidos.Pipoca;
-                                        break;
-                                    case 2:
-                                        programaSelecionado = ProgramasPreDefinidos.Leite;
-                                        break;
-                                    case 3:
-                                        programaSelecionado = ProgramasPreDefinidos.CarnesDeBoi;
-                                        break;
-                                    case 4:
-                                        programaSelecionado = ProgramasPreDefinidos.Frango;
-                                        break;
-                                    case 5:
-                                        programaSelecionado = ProgramasPreDefinidos.Feijao;
-                                        break;
-                                    default:
-                                        Console.WriteLine("Programa inválido. Tente novamente.");
-                                        break;
-                                }
+                    case "4":
+                        microondas.AcrescentarTempo();
+                        break;
 
-                                if (programaSelecionado != null)
-                                {
-                                    microondas.IniciarProgramaPreDefinido(programaSelecionado);
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("Opção inválida. Tente novamente.");
-                            }
-                            break;
+                    case "5":
+                        var programas = ProgramasPreDefinidos.ObterTodosProgramas();
+                        Console.WriteLine("Escolha um programa pré-definido:");
 
-                        case 6:
-                            continuar = false;
-                            break;
+                        for (int i = 0; i < programas.Count; i++)
+                        {
+                            Console.WriteLine($"{i + 1} - {programas[i].Nome}");
+                        }
 
-                        default:
-                            Console.WriteLine("Opção inválida. Tente novamente.");
-                            break;
-                    }
+                        int programaEscolhido = int.Parse(Console.ReadLine()) - 1;
+
+                        if (programaEscolhido >= 0 && programaEscolhido < programas.Count)
+                        {
+                            microondas.IniciarProgramaPreDefinido(programas[programaEscolhido]);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Programa inválido.");
+                        }
+                        break;
+
+                    case "6":
+                        ProgramaAquecimento programaCustomizado = new ProgramaAquecimento();
+
+                        Console.WriteLine("Informe o nome do programa:");
+                        programaCustomizado.Nome = Console.ReadLine();
+
+                        Console.WriteLine("Informe o tipo de alimento:");
+                        programaCustomizado.Alimento = Console.ReadLine();
+
+                        Console.WriteLine("Informe o tempo em segundos:");
+                        programaCustomizado.Tempo = int.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Informe a potência (1 a 10):");
+                        programaCustomizado.Potencia = int.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Informe o caractere de aquecimento (não pode ser ponto e deve ser único):");
+                        programaCustomizado.CaractereAquecimento = Console.ReadLine();
+
+                        Console.WriteLine("Informe as instruções:");
+                        programaCustomizado.Instrucoes = Console.ReadLine();
+
+                        try
+                        {
+                            microondas.AdicionarProgramaCustomizado(programaCustomizado);
+                            Console.WriteLine("Programa customizado adicionado com sucesso.");
+                        }
+                        catch (ArgumentException e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                        break;
+
+                    case "7":
+                        continuar = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("Opção inválida.");
+                        break;
                 }
-                else
-                {
-                    Console.WriteLine("Opção inválida. Tente novamente.");
-                }
-
-            } while (continuar);
-
-            Console.WriteLine("Programa encerrado.");
+            }
         }
     }
 }

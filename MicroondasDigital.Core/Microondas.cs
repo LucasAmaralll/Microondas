@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using MicroondasDigital.Core.Interfaces;
 
 
 namespace MicroondasDigital.Core
@@ -75,6 +76,12 @@ namespace MicroondasDigital.Core
             tempoRestante += 30;
             Console.WriteLine($"Tempo acrescentado. Novo tempo restante: {tempoRestante} segundos.");
         }
+
+        public void IniciarProgramaPreDefinido(ProgramaAquecimento programa)
+        {
+            IniciarAquecimento(programa.Tempo, programa.Potencia);
+        }
+
 
         private void ProcessarAquecimento()
         {

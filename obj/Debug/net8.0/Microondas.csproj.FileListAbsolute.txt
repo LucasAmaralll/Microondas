@@ -7,3 +7,13 @@ C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\Microo
 C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\Microondas.AssemblyInfo.cs
 C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\Microondas.csproj.CoreCompileInputs.cache
 C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\Microondas.sourcelink.json
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\bin\Debug\net8.0\Microondas.exe
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\bin\Debug\net8.0\Microondas.deps.json
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\bin\Debug\net8.0\Microondas.runtimeconfig.json
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\bin\Debug\net8.0\Microondas.dll
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\bin\Debug\net8.0\Microondas.pdb
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\Microondas.dll
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\refint\Microondas.dll
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\Microondas.pdb
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\Microondas.genruntimeconfig.cache
+C:\Users\Lucas Do Amaral\Documents\MicroondasDigital.sln\obj\Debug\net8.0\ref\Microondas.dll

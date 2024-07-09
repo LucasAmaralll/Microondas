@@ -1,0 +1,4 @@
+C:\Users\Lucas Do Amaral\Documents\Microondas\obj\Debug\net5.0-windows\Microondas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lucas Do Amaral\Documents\Microondas\obj\Debug\net5.0-windows\Microondas.AssemblyInfoInputs.cache
+C:\Users\Lucas Do Amaral\Documents\Microondas\obj\Debug\net5.0-windows\Microondas.AssemblyInfo.cs
+C:\Users\Lucas Do Amaral\Documents\Microondas\obj\Debug\net5.0-windows\Microondas.csproj.CoreCompileInputs.cache
